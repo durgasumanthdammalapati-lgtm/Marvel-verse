@@ -1,0 +1,1855 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* =========================
+   1. GLOBAL STYLES
+========================= */
+
+:root {
+  font-family: 'Inter', sans-serif;
+  color: #f6f6f8;
+  background: #101014;
+
+  --bg: #101014;
+  --panel: #19191f;
+  --panel2: #202027;
+  --red: #e62429;
+  --red2: #ff4248;
+  --muted: #a5a5b0;
+  --line: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--bg);
+  color: #f6f6f8;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1;
+}
+
+.container {
+  max-width: 1240px;
+}
+
+/* =========================
+   2. NAVBAR
+========================= */
+
+.marvel-navbar {
+  background: rgba(12, 12, 16, 0.96);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+  z-index: 1030;
+  padding: 14px 0;
+}
+
+.marvel-logo,
+.footer-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: #fff !important;
+}
+
+.marvel-logo span,
+.footer-logo span {
+  color: var(--red);
+  margin-left: 4px;
+}
+
+.marvel-navbar .nav-link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #c8c8d0;
+  padding: 0.7rem 0.72rem !important;
+}
+
+.marvel-navbar .nav-link:hover,
+.marvel-navbar .nav-link.active {
+  color: #fff;
+}
+
+.marvel-navbar .nav-link.active {
+  position: relative;
+}
+
+.marvel-navbar .nav-link.active::after {
+  content: "";
+  height: 2px;
+  background: var(--red);
+  position: absolute;
+  bottom: 3px;
+  left: 12px;
+  right: 12px;
+}
+
+.nav-auth-button {
+  margin-left: 8px;
+  font-size: 0.82rem !important;
+  padding: 9px 14px !important;
+}
+
+.nav-user {
+  color: #bdbdc7;
+  font-size: 0.85rem;
+  margin: 0 10px;
+}
+
+/* =========================
+   3. BUTTONS
+========================= */
+
+.marvel-btn,
+.marvel-outline-btn {
+  border-radius: 6px;
+  padding: 12px 19px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    border-color 0.2s;
+}
+
+.marvel-btn {
+  background: var(--red);
+  border: 1px solid var(--red);
+  color: white;
+}
+
+.marvel-btn:hover,
+.marvel-btn:focus {
+  background: #c91820;
+  border-color: #c91820;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.marvel-outline-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  color: #fff;
+}
+
+.marvel-outline-btn:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+/* =========================
+   4. HOMEPAGE HERO
+========================= */
+
+.hero-section {
+  min-height: 620px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(12, 12, 16, 0.98) 0%,
+      rgba(12, 12, 16, 0.87) 48%,
+      rgba(12, 12, 16, 0.42) 100%
+    ),
+    url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=2000&q=90')
+      center / cover no-repeat;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 130px;
+  background: linear-gradient(transparent, var(--bg));
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 65px;
+  padding-bottom: 75px;
+}
+
+.eyebrow,
+.section-tag,
+.form-kicker {
+  font-size: 0.72rem;
+  letter-spacing: 2.2px;
+  color: #ff5c62;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.eyebrow span {
+  display: inline-block;
+  width: 25px;
+  height: 2px;
+  background: var(--red);
+  vertical-align: middle;
+  margin-right: 9px;
+}
+
+.hero-content h1,
+.page-heading h1,
+.auth-promo h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: 0.5px;
+  font-size: clamp(3.4rem, 7.5vw, 6.5rem);
+  margin: 0 0 22px;
+  max-width: 900px;
+}
+
+.hero-content h1 span,
+.page-heading h1 span,
+.section-heading h2 span,
+.feature-strip h2 span,
+.auth-promo h1 span {
+  color: var(--red);
+}
+
+.hero-description {
+  color: #d0d0d8;
+  max-width: 590px;
+  font-size: 1.03rem;
+  line-height: 1.8;
+  margin-bottom: 27px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 48px;
+}
+
+.hero-stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-stats strong {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+  color: #fff;
+}
+
+.hero-stats span {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+/* =========================
+   5. HOMEPAGE SECTIONS
+========================= */
+
+.section-padding {
+  padding: 78px 0;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 32px;
+}
+
+.section-heading h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  line-height: 1.05;
+  margin: 0 0 14px;
+}
+
+.section-heading > p:last-child,
+.page-heading > p:last-child {
+  color: var(--muted);
+  margin: 0;
+}
+
+.explore-card,
+.team-card {
+  height: 100%;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+
+  background: linear-gradient(
+    145deg,
+    #1c1c23,
+    #151519
+  );
+
+  transition:
+    transform 0.25s,
+    border-color 0.25s,
+    background 0.25s;
+}
+
+.explore-card:hover,
+.team-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(230, 36, 41, 0.65);
+
+  background: linear-gradient(
+    145deg,
+    #24242c,
+    #18181d
+  );
+}
+
+.card-icon,
+.team-icon {
+  height: 48px;
+  width: 48px;
+  border-radius: 9px;
+  background: rgba(230, 36, 41, 0.13);
+  color: #ff555b;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 1.45rem;
+  margin-bottom: 22px;
+}
+
+.explore-card h3,
+.media-card h3,
+.timeline-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 0 0 9px;
+}
+
+.explore-card p,
+.team-card > p:not(.section-tag) {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 22px;
+}
+
+.explore-card > a,
+.card-link,
+.timeline-card a {
+  font-size: 0.87rem;
+  color: #ff5c62;
+  font-weight: 700;
+}
+
+.explore-card > a span {
+  margin-left: 5px;
+}
+
+.feature-strip {
+  background: #17171d;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 52px 0;
+}
+
+.feature-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.feature-strip h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  line-height: 1;
+  margin: 0;
+}
+
+.feature-strip-inner > p {
+  max-width: 390px;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* =========================
+   6. PAGE HEADINGS
+========================= */
+
+.page-wrap {
+  padding-top: 60px;
+  padding-bottom: 85px;
+  min-height: 62vh;
+}
+
+.page-heading {
+  margin: 0 auto 38px;
+  text-align: center;
+  max-width: 780px;
+}
+
+.page-heading h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+  margin-bottom: 13px;
+}
+
+.page-heading .section-tag {
+  margin-bottom: 10px;
+}
+
+/* =========================
+   7. SEARCH AND FILTERS
+========================= */
+
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.search-input-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 650px;
+}
+
+.search-input-wrap > i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8d8d98;
+}
+
+.search-input-wrap .form-control {
+  padding-left: 43px;
+}
+
+.form-control,
+.form-select {
+  background: #19191f;
+  border: 1px solid #383840;
+  color: #f6f6f8;
+  border-radius: 7px;
+  min-height: 48px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background: #1b1b22;
+  color: #fff;
+  border-color: var(--red);
+  box-shadow: 0 0 0 0.2rem rgba(230, 36, 41, 0.15);
+}
+
+.form-control::placeholder {
+  color: #777783;
+}
+
+.form-select option {
+  background: #19191f;
+  color: #fff;
+}
+
+.team-select {
+  max-width: 190px;
+}
+
+/* =========================
+   8. CHARACTER AND MOVIE CARDS
+========================= */
+
+.media-card {
+  height: 100%;
+  background: #19191f;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+
+  transition:
+    transform 0.25s,
+    border-color 0.25s;
+}
+
+.media-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(230, 36, 41, 0.55);
+}
+
+.media-card > img {
+  display: block;
+  width: 100%;
+  height: 245px;
+  object-fit: cover;
+  background: #25252c;
+}
+
+.media-card-body {
+  padding: 20px;
+}
+
+.media-card-body > p {
+  font-size: 0.86rem;
+  color: var(--muted);
+  margin: 0 0 15px;
+}
+
+.card-kicker {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #ff5c62;
+  font-weight: 800;
+  margin-bottom: 7px;
+}
+
+.movie-meta {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.movie-meta span {
+  font-size: 0.72rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 3px 8px;
+  color: #c5c5ce;
+}
+
+/* =========================
+   9. EMPTY STATES
+========================= */
+
+.empty-state {
+  text-align: center;
+  padding: 55px 20px;
+  background: #17171d;
+  border: 1px dashed #393941;
+  border-radius: 12px;
+  margin-top: 22px;
+}
+
+.empty-state > i {
+  font-size: 2.2rem;
+  color: var(--red);
+  display: block;
+  margin-bottom: 14px;
+}
+
+.empty-state h3,
+.empty-state h1 {
+  font-weight: 800;
+}
+
+.empty-state p {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+/* =========================
+   10. DETAIL PAGES
+========================= */
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) 1.2fr;
+  gap: clamp(28px, 5vw, 70px);
+  align-items: start;
+  margin-top: 26px;
+}
+
+.detail-image {
+  width: 100%;
+  max-height: 620px;
+  min-height: 340px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+
+.detail-content h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1;
+  margin: 0 0 10px;
+}
+
+.detail-subtitle {
+  color: #ff656b;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.detail-description {
+  color: #c4c4ce;
+  font-size: 1rem;
+  line-height: 1.9;
+  margin-bottom: 26px;
+}
+
+.detail-fact {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.detail-fact span {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.detail-fact strong {
+  font-size: 0.94rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #ff6268;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* =========================
+   11. TEAMS
+========================= */
+
+.team-card h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.team-members {
+  border-top: 1px solid var(--line);
+  padding: 15px 0;
+  margin-bottom: 8px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.team-members strong {
+  font-size: 0.77rem;
+  color: #ddd;
+}
+
+.team-members span {
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+/* =========================
+   12. MCU TIMELINE
+========================= */
+
+.timeline-list {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 48px 70px 1fr;
+  gap: 15px;
+  align-items: start;
+  position: relative;
+  padding-bottom: 22px;
+}
+
+.timeline-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 23px;
+  top: 45px;
+  bottom: -4px;
+  width: 1px;
+  background: #42424b;
+}
+
+.timeline-marker {
+  height: 46px;
+  width: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--red);
+  font-size: 0.75rem;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-year {
+  font-weight: 800;
+  padding-top: 12px;
+}
+
+.timeline-card {
+  display: flex;
+  gap: 18px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--panel);
+}
+
+.timeline-card img {
+  width: 115px;
+  height: 125px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.timeline-card p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+/* =========================
+   13. GLOBAL SEARCH RESULTS
+========================= */
+
+.global-search {
+  max-width: 800px;
+  margin: 0 auto 32px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 0 18px;
+  border: 1px solid #44444d;
+  border-radius: 10px;
+  background: #19191f;
+}
+
+.global-search i {
+  font-size: 1.2rem;
+  color: #ff6268;
+}
+
+.global-search input {
+  width: 100%;
+  min-height: 62px;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: white;
+  font-size: 1rem;
+}
+
+.global-search input::placeholder {
+  color: #858590;
+}
+
+.results-section {
+  margin-top: 35px;
+}
+
+.results-section h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.results-section h2 span {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.search-result {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px;
+  background: #1b1b21;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  min-height: 85px;
+}
+
+.search-result:hover {
+  border-color: rgba(230, 36, 41, 0.65);
+}
+
+.search-result img {
+  height: 58px;
+  width: 58px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.search-result div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.search-result strong {
+  font-size: 0.9rem;
+}
+
+.search-result span {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.search-result > i {
+  color: #ff6268;
+}
+
+/* =========================
+   14. LOGIN AND SIGNUP
+========================= */
+
+.auth-page {
+  padding: 55px 0 75px;
+
+  background:
+    radial-gradient(
+      ellipse at 10% 0%,
+      rgba(230, 36, 41, 0.12),
+      transparent 38%
+    ),
+    var(--bg);
+}
+
+.auth-layout {
+  max-width: 1050px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #17171d;
+
+  box-shadow: 0 22px 65px rgba(0, 0, 0, 0.25);
+}
+
+.auth-promo {
+  padding: clamp(28px, 5vw, 55px);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(230, 36, 41, 0.18),
+      rgba(18, 18, 23, 0.97) 68%
+    ),
+    url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1000&q=85')
+      center / cover;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 600px;
+}
+
+.auth-badge {
+  font-size: 0.68rem;
+  letter-spacing: 1.7px;
+  font-weight: 800;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  padding: 8px 11px;
+  margin-bottom: 30px;
+}
+
+.auth-promo h1 {
+  font-size: clamp(2.8rem, 4vw, 4.2rem);
+  margin-bottom: 20px;
+}
+
+.auth-promo > p {
+  color: #d0d0d8;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  max-width: 330px;
+}
+
+.auth-promo-icon {
+  margin-top: auto;
+  margin-bottom: 25px;
+
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  display: grid;
+  place-items: center;
+
+  font-size: 2rem;
+  color: #ff6268;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.auth-back-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #e6e6eb;
+}
+
+.auth-form-panel {
+  padding: clamp(28px, 5vw, 55px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-form-container {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-heading {
+  margin-bottom: 26px;
+}
+
+.auth-heading h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  margin: 0 0 8px;
+}
+
+.auth-heading p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.form-kicker {
+  display: block;
+  font-size: 0.65rem;
+  margin-bottom: 8px;
+}
+
+.auth-form-container .form-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #e6e6eb;
+  margin-bottom: 7px;
+}
+
+.auth-input {
+  min-height: 48px;
+  padding: 12px 14px;
+  font-size: 0.88rem;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper .auth-input {
+  padding-right: 48px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  height: 35px;
+  width: 35px;
+
+  border: 0;
+  background: transparent;
+  color: #a7a7b2;
+  border-radius: 5px;
+}
+
+.password-toggle:hover {
+  color: white;
+  background: #2a2a32;
+}
+
+.auth-submit {
+  width: 100%;
+  min-height: 49px;
+  margin-top: 3px;
+}
+
+.auth-switch {
+  text-align: center;
+  color: #b4b4bf;
+  font-size: 0.85rem;
+  margin: 24px 0 12px;
+}
+
+.auth-switch a {
+  color: #ff6268;
+  font-weight: 800;
+}
+
+.auth-disclaimer {
+  font-size: 0.7rem;
+  color: #858590;
+  text-align: center;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.alert {
+  font-size: 0.84rem;
+}
+
+/* =========================
+   15. FOOTER
+========================= */
+
+.marvel-footer {
+  padding: 48px 0 22px;
+  background: #0b0b0e;
+  border-top: 1px solid var(--line);
+}
+
+.footer-logo {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.footer-description {
+  max-width: 350px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.marvel-footer h6 {
+  font-weight: 800;
+  margin: 8px 0 15px;
+}
+
+.marvel-footer .col-6 a {
+  display: block;
+  color: var(--muted);
+  font-size: 0.84rem;
+  margin: 8px 0;
+}
+
+.marvel-footer .col-6 a:hover {
+  color: white;
+}
+
+.footer-divider {
+  border-color: var(--line);
+  margin: 30px 0 18px;
+}
+
+.copyright {
+  font-size: 0.72rem;
+  color: #777783;
+  margin: 5px 0;
+}
+
+/* =========================
+   16. LARGE DESKTOPS
+========================= */
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+
+  .hero-section {
+    min-height: 700px;
+  }
+
+  .media-card > img {
+    height: 270px;
+  }
+}
+
+/* =========================
+   17. TABLETS AND SMALL LAPTOPS
+========================= */
+
+@media (max-width: 991.98px) {
+  .marvel-navbar .navbar-collapse {
+    padding-top: 15px;
+  }
+
+  .marvel-navbar .navbar-nav {
+    align-items: stretch !important;
+    gap: 2px;
+  }
+
+  .marvel-navbar .nav-link {
+    padding: 10px 4px !important;
+  }
+
+  .marvel-navbar .nav-link.active::after {
+    left: 0;
+    right: auto;
+    width: 28px;
+    bottom: 3px;
+  }
+
+  .nav-auth-button {
+    margin: 7px 0 4px;
+    align-self: flex-start;
+  }
+
+  .hero-section {
+    min-height: 570px;
+  }
+
+  .hero-content {
+    padding-top: 50px;
+  }
+
+  .feature-strip-inner {
+    flex-wrap: wrap;
+  }
+
+  .feature-strip-inner > p {
+    max-width: 100%;
+    flex: 1 1 300px;
+  }
+
+  .auth-layout {
+    max-width: 850px;
+  }
+
+  .auth-promo,
+  .auth-form-panel {
+    padding: 32px;
+  }
+
+  .auth-promo {
+    min-height: 570px;
+  }
+}
+
+/* =========================
+   18. MOBILE PHONES
+========================= */
+
+@media (max-width: 767.98px) {
+  .hero-section {
+    min-height: 590px;
+    background-position: 60% center;
+  }
+
+  .hero-content {
+    padding-top: 48px;
+    padding-bottom: 60px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(3.1rem, 12vw, 5rem);
+  }
+
+  .hero-description {
+    font-size: 0.94rem;
+  }
+
+  .hero-stats {
+    gap: 27px;
+    margin-top: 38px;
+  }
+
+  .section-padding {
+    padding: 58px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 25px;
+  }
+
+  .explore-card {
+    padding: 24px;
+  }
+
+  .page-wrap {
+    padding-top: 43px;
+    padding-bottom: 60px;
+  }
+
+  .page-heading {
+    margin-bottom: 28px;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+  }
+
+  .search-input-wrap {
+    max-width: none;
+  }
+
+  .team-select {
+    max-width: none;
+  }
+
+  .media-card > img {
+    height: 250px;
+  }
+
+  .detail-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .detail-image {
+    max-height: 430px;
+    min-height: 250px;
+  }
+
+  .detail-content h1 {
+    font-size: 3.4rem;
+  }
+
+  .timeline-item {
+    grid-template-columns: 40px 1fr;
+    gap: 10px;
+  }
+
+  .timeline-item:not(:last-child)::before {
+    left: 19px;
+  }
+
+  .timeline-marker {
+    width: 38px;
+    height: 38px;
+    font-size: 0.68rem;
+  }
+
+  .timeline-year {
+    grid-column: 2;
+    padding-top: 0;
+    margin-bottom: -6px;
+  }
+
+  .timeline-card {
+    grid-column: 2;
+  }
+
+  .timeline-card img {
+    width: 90px;
+    height: 110px;
+  }
+
+  .auth-page {
+    padding: 30px 0 45px;
+  }
+
+  .auth-layout {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+  }
+
+  .auth-promo {
+    min-height: auto;
+    padding: 30px;
+    background-position: center 35%;
+  }
+
+  .auth-promo h1 {
+    font-size: 3rem;
+  }
+
+  .auth-promo > p {
+    max-width: 100%;
+  }
+
+  .auth-promo-icon {
+    display: none;
+  }
+
+  .auth-badge {
+    margin-bottom: 22px;
+  }
+
+  .auth-back-link {
+    margin-top: 18px;
+  }
+
+  .auth-form-panel {
+    padding: 30px 25px;
+  }
+
+  .feature-strip {
+    padding: 42px 0;
+  }
+
+  .feature-strip-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .feature-strip-inner > p {
+    flex: auto;
+  }
+
+  .footer-description {
+    max-width: 100%;
+  }
+}
+
+/* =========================
+   19. SMALL MOBILE PHONES
+========================= */
+
+@media (max-width: 420px) {
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .marvel-logo {
+    font-size: 1.55rem;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-buttons .btn {
+    text-align: center;
+  }
+
+  .hero-stats {
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .hero-stats strong {
+    font-size: 1.7rem;
+  }
+
+  .page-heading h1 {
+    font-size: 2.75rem;
+  }
+
+  .media-card > img {
+    height: 220px;
+  }
+
+  .timeline-card {
+    gap: 11px;
+    padding: 10px;
+  }
+
+  .timeline-card img {
+    width: 72px;
+    height: 92px;
+  }
+
+  .timeline-card h3 {
+    font-size: 1rem;
+  }
+
+  .timeline-card p {
+    font-size: 0.77rem;
+  }
+
+  .auth-form-panel {
+    padding: 27px 18px;
+  }
+
+  .auth-promo {
+    padding: 25px 20px;
+  }
+
+  .auth-promo h1 {
+    font-size: 2.65rem;
+  }
+
+  .auth-heading h2 {
+    font-size: 1.7rem;
+  }
+}
+/* ========================================
+   MARVEL TIMELINE
+======================================== */
+
+.timeline-selector {
+  max-width: 650px;
+  margin: 0 auto 36px;
+  padding: 24px;
+  background: #18181e;
+  border: 1px solid #303039;
+  border-radius: 14px;
+}
+
+.timeline-selector .form-label {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.timeline-selector .form-select {
+  background-color: #22222a;
+  color: #ffffff;
+  border: 1px solid #41414b;
+  padding: 12px;
+}
+
+.timeline-description {
+  color: #bdbdc7;
+  margin: 14px 0 0;
+  line-height: 1.6;
+}
+
+.timeline-summary {
+  margin-bottom: 28px;
+}
+
+.timeline-summary h2 {
+  color: #ffffff;
+  margin-top: 8px;
+}
+
+.timeline-summary p {
+  color: #bdbdc7;
+}
+
+.timeline-list {
+  position: relative;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.timeline-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 23px;
+  width: 2px;
+  background: #e62429;
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.timeline-marker {
+  position: relative;
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e62429;
+  color: #ffffff;
+  border-radius: 50%;
+  font-weight: 700;
+  border: 4px solid #101014;
+}
+
+.timeline-card {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  overflow: hidden;
+  background: #18181e;
+  border: 1px solid #303039;
+  border-radius: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.timeline-card:hover {
+  border-color: #e62429;
+}
+
+.timeline-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 190px;
+  object-fit: cover;
+}
+
+.timeline-card-content {
+  padding: 22px;
+}
+
+.timeline-card-content h3 {
+  color: #ffffff;
+  margin: 8px 0 12px;
+}
+
+.timeline-card-content p {
+  color: #bdbdc7;
+  line-height: 1.65;
+}
+
+.timeline-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 36px;
+  padding: 20px;
+  background: #18181e;
+  border: 1px solid #303039;
+  border-radius: 12px;
+}
+
+.timeline-note > i {
+  color: #e62429;
+  font-size: 1.4rem;
+}
+
+.timeline-note p {
+  color: #c3c3cc;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.timeline-note strong {
+  color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .timeline-card {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-card img {
+    height: 220px;
+    min-height: 0;
+  }
+
+  .timeline-card-content {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-selector {
+    padding: 18px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .timeline-marker {
+    width: 38px;
+    height: 38px;
+  }
+
+  .timeline-list::before {
+    left: 18px;
+  }
+
+  .timeline-card img {
+    height: 180px;
+  }
+}
+
+/* =========================================================
+   20. LAYOUT + IMAGE FIXES
+   These rules reinforce the existing design without changing
+   the Marvel Verse colour palette or component names.
+========================================================= */
+
+/* Keep page content centred and prevent accidental full-width overflow. */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Character/movie cards should never stretch beyond their grid column. */
+.media-card {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cover only images that are direct children of media cards. */
+.media-card > img {
+  display: block;
+  width: 100%;
+  height: 245px;
+  min-height: 245px;
+  max-height: 245px;
+  object-fit: cover;
+  object-position: center top;
+  flex: 0 0 245px;
+}
+
+/* Allow card content to use the remaining card space consistently. */
+.media-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Prevent long names/descriptions from forcing cards wider. */
+.media-card h3,
+.media-card-body p {
+  overflow-wrap: anywhere;
+}
+
+/* Ensure Bootstrap rows and columns do not create horizontal scrolling. */
+.row {
+  min-width: 0;
+}
+
+.row > * {
+  min-width: 0;
+}
+
+/* Make search and filter controls shrink safely on smaller screens. */
+.filter-bar > * {
+  min-width: 0;
+}
+
+.search-input-wrap .form-control,
+.team-select {
+  width: 100%;
+}
+
+/* Keep all page images responsive by default. */
+img {
+  max-width: 100%;
+}
+
+/* Improve focus visibility for keyboard navigation. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--red2);
+  outline-offset: 3px;
+}
+
+/* Avoid hover movement causing clipping in cards or page sections. */
+.media-card,
+.explore-card,
+.team-card {
+  will-change: transform;
+}
+
+/* Tablet adjustments. */
+@media (max-width: 991.98px) {
+  .media-card > img {
+    height: 230px;
+    min-height: 230px;
+    max-height: 230px;
+    flex-basis: 230px;
+  }
+}
+
+/* Mobile adjustments. */
+@media (max-width: 767.98px) {
+  .media-card > img {
+    height: 250px;
+    min-height: 250px;
+    max-height: 250px;
+    flex-basis: 250px;
+    object-position: center 20%;
+  }
+
+  .filter-bar {
+    width: 100%;
+  }
+}
+
+/* Very small phones. */
+@media (max-width: 420px) {
+  .media-card > img {
+    height: 220px;
+    min-height: 220px;
+    max-height: 220px;
+    flex-basis: 220px;
+  }
+}
+/* =========================================
+   CHARACTERS PAGE - CARD LAYOUT FIX
+========================================= */
+
+.page-wrap {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 45px 24px 70px;
+}
+
+.page-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.page-heading h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.page-heading h1 span {
+  color: var(--red);
+}
+
+.filter-bar {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.search-input-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.team-select {
+  max-width: 220px;
+}
+
+/* Four equal cards on desktop */
+.character-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Consistent image dimensions */
+.character-card > img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center top;
+  flex-shrink: 0;
+}
+
+/* Consistent card content */
+.character-card .media-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+}
+
+.character-card .card-kicker {
+  color: var(--red);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.character-card h3 {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 10px 0;
+}
+
+.character-card p {
+  color: var(--muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.character-card .card-link {
+  margin-top: 12px;
+  color: var(--red);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.character-card .card-link:hover {
+  color: var(--red2);
+}
+
+/* Prevent Bootstrap columns from overflowing */
+.row > * {
+  min-width: 0;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+  .character-card > img {
+    height: 230px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 575.98px) {
+  .page-wrap {
+    padding: 30px 16px 50px;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+  }
+
+  .team-select {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .character-card > img {
+    height: 250px;
+  }
+}
